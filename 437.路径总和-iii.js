@@ -28,6 +28,7 @@ var pathSum = function (root, sum) {
   function dfs(root, currSum) {
     if (!root) return
     currSum += root.val
+    // 注意点：更新结果
     ans += prefixSumCount.get(currSum - sum) || 0
 
     prefixSumCount.set(currSum, (prefixSumCount.get(currSum) || 0) + 1)

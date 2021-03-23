@@ -40,10 +40,9 @@ SnapshotArray.prototype.get = function (index, snap_id) {
   let snapIds = [...this.arr[index].keys()]
   // 二分查找，找到 <= snap_id 的值
   let low = 0,
-    high = snapIds.length - 1,
-    mid
+    high = snapIds.length - 1
   while (low <= high) {
-    mid = Math.floor((low + high) / 2)
+    let mid = Math.floor((low + high) / 2)
     if (snapIds[mid] < snap_id) {
       low = mid + 1
     } else if (snapIds[mid] > snap_id) {
@@ -52,6 +51,7 @@ SnapshotArray.prototype.get = function (index, snap_id) {
       return this.arr[index].get(snap_id)
     }
   }
+  // 注意点：返回 low - 1 的索引值
   return this.arr[index].get(snapIds[low - 1]) || null
 };
 
