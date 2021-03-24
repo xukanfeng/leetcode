@@ -33,6 +33,7 @@ var inorderTraversal = function (root) {
 
   const ans = []
   const stack = []
+  // 注意点：root 作为循环条件
   while (root || stack.length) {
     while (root) {
       stack.push(root)

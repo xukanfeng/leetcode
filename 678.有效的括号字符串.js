@@ -10,8 +10,10 @@
  * @return {boolean}
  */
 var checkValidString = function (s) {
-  let left = [], star = []
-  for (let i = 0; i < s.length; i++){
+  let left = [],
+    star = []
+  for (let i = 0; i < s.length; i++) {
+    // 注意点：栈中保存索引
     if (s[i] === "(") left.push(i)
     if (s[i] === "*") star.push(i)
     if (s[i] === ")") {
@@ -25,6 +27,7 @@ var checkValidString = function (s) {
   }
   if (left.length > star.length) return false
   while (left.length && star.length) {
+    // 注意点：如果 * 右边有 ( ，返回 false
     if (left.pop() > star.pop()) return false
   }
   return true

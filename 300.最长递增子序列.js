@@ -22,6 +22,7 @@ var lengthOfLIS = function (nums) {
       }
     }
   }
+  // 注意点：最长子序列的长度为 dp 数组的最大值
   return dp.reduce((a, b) => Math.max(a, b))
 };
 // @lc code=end
