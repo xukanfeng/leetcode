@@ -23,11 +23,11 @@ var buildTree = function (preorder, inorder) {
     if (preStart > preEnd) return null
 
     const rootVal = preorder[preStart]
-    const root = new TreeNode(rootVal)
     const index = inorder.indexOf(rootVal)
     // 注意点：获取左子树数组长度
     const leftSize = index - inStart
 
+    const root = new TreeNode(rootVal)
     root.left = dfs(preorder, preStart + 1, preStart + leftSize, inorder, inStart, index - 1)
     root.right = dfs(preorder, preStart + leftSize + 1, preEnd, inorder, index + 1, inEnd)
     return root
