@@ -23,7 +23,7 @@ var removeDuplicates = function(s, k) {
         if (counts[counts.length - 1] === k) {
           counts.pop()
           // 删除元素
-          s = s.slice(0, i - (k - 1)) + s.slice(i + 1)
+          s = s.slice(0, i - k + 1) + s.slice(i + 1)
           // 更新索引
           i = i - k
         }
