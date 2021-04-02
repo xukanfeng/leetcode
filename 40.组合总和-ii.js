@@ -10,6 +10,7 @@
  * @param {number} target
  * @return {number[][]}
  */
+// candidates 中的每个数字在每个组合中只能使用一次
 var combinationSum2 = function (candidates, target) {
   const ans = []
   // 注意点：排序

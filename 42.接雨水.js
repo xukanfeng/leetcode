@@ -24,8 +24,8 @@ var trap = function(height) {
   for (let i = height.length - 2; i >= 0; i--) {
     rmax[i] = Math.max(height[i], rmax[i + 1])
   }
-  // height 数组至少有 3 个元素才可能接到雨水
-  for (let i = 1; i < height.length - 1; i++) {
+  // height 数组至少有 3 个元素才可能接到雨水，i === 0 和 i === height.length - 1 其实是无效的
+  for (let i = 0; i < height.length; i++) {
     // 注意点：位置 i 能接到的雨水等于 Math.min(lmax[i], rmax[i]) - height[i]
     res += Math.min(lmax[i], rmax[i]) - height[i]
   }

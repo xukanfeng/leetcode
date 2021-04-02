@@ -10,6 +10,7 @@
  * @param {number} target
  * @return {number[][]}
  */
+// candidates 中的数字可以无限制重复被选取
 var combinationSum = function(candidates, target) {
   const ans = []
 
